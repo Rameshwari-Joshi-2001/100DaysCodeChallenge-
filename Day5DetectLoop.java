@@ -36,6 +36,22 @@ public class Day5DetectLoop
 	
 	static boolean detectLoop(Node head)
 	{
+		/*For case1: 
+		HashSet<Node> hs = new HashSet<>();
+		Node cur=head;
+		while(cur!=null)
+		{
+			if(hs.contains(cur))
+			{
+				return true;
+				
+			}
+			hs.add(cur);
+			cur=cur.next;
+		}
+		return false;
+ * */
+		//case2:
 		Node slow=head;
 		Node fast=head;
 		while(slow !=null &&fast!=null &&fast.next!=null)
@@ -48,7 +64,6 @@ public class Day5DetectLoop
 			}
 		}
 		return false;
-
 	}
 
 public static void main(String[] args) 

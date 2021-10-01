@@ -1,3 +1,4 @@
+package logic;
 /*
  Today Interviewer asked me linkedList detecti loop problem so lets go and see all possible solutions
  
@@ -35,19 +36,19 @@ public class Day5DetectLoop
 	
 	static boolean detectLoop(Node head)
 	{
-		HashSet<Node> hs = new HashSet<>();
-		Node cur=head;
-		while(cur!=null)
+		Node slow=head;
+		Node fast=head;
+		while(slow !=null &&fast!=null &&fast.next!=null)
 		{
-			if(hs.contains(cur))
+			slow=slow.next;
+			fast= fast.next.next;
+			if(slow==fast)
 			{
 				return true;
-				
 			}
-			hs.add(cur);
-			cur=cur.next;
 		}
 		return false;
+
 	}
 
 public static void main(String[] args) 
